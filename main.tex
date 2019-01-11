@@ -1,0 +1,41 @@
+\documentclass[12pt]{ctexbook}
+
+\usepackage{ctex}
+\usepackage{fancyvrb}
+\usepackage[paperwidth=10cm, paperheight=18cm, left=1cm, right=1cm]{geometry}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{xpinyin}
+
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+
+\hypersetup{
+	unicode=true, pdftoolbar=true, 
+	pdfmenubar=true, pdffitwindow=true,
+	pdfstartview={FitH}, pdfnewwindow=true,
+	colorlinks=true, citecolor=green,
+	filecolor=magenta, urlcolor=cyan
+}
+
+\newcommand{\book}[1]{\part{#1}}
+\newcommand{\volume}[1]{\chapter{#1}}
+\newcommand{\article}[1]{\section{#1}}
+
+\begin{document}
+
+\tableofcontents
+
+\doublespacing
+
+\input{chun-qiu-zuo-zhuan/chun-qiu-zuo-zhuan.tex}
+
+\input{shiji/shiji.tex}
+
+\input{han-shu/han-shu.tex}
+
+\input{hou-han-shu/hou-han-shu.tex}
+
+\end{document}
