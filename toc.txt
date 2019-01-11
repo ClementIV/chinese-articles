@@ -1,0 +1,10 @@
+初見秦	https://ctext.org/hanfeizi/chu-jian-qin/zh
+姦劫弒臣	https://ctext.org/hanfeizi/jian-jie-shi-chen/zh
+說林上	https://ctext.org/hanfeizi/shuo-lin-shang/zh
+說林下	https://ctext.org/hanfeizi/shuo-lin-xia/zh
+內儲說上	https://ctext.org/hanfeizi/nei-chu-shuo-shang/zh
+內儲說下	https://ctext.org/hanfeizi/nei-chu-shuo-xia/zh
+外儲說左上	https://ctext.org/hanfeizi/wai-chu-shuo-zuo-shang/zh
+外儲說左下	https://ctext.org/hanfeizi/wai-chu-shuo-zuo-xia/zh
+外儲說右上	https://ctext.org/hanfeizi/wai-chu-shuo-you-shang/zh
+外儲說右下	https://ctext.org/hanfeizi/wai-chu-shuo-you-xia/zh
