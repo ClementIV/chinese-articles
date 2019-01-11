@@ -9,10 +9,15 @@
 \usepackage{xcolor}
 \usepackage{xpinyin}
 
+\newcommand{\docAuthor}{ZHANG Yang}
+\newcommand{\docTitle}{文苑菁华}
+
 \usepackage{hyperref}
 \usepackage{hyperxmp}
 
 \hypersetup{
+	pdftitle=\docTitle, pdfauthor=\docAuthor, 
+	pdfcreator=\docAuthor, pdfproducer=\docAuthor,
 	unicode=true, pdftoolbar=true, 
 	pdfmenubar=true, pdffitwindow=true,
 	pdfstartview={FitH}, pdfnewwindow=true,
@@ -24,7 +29,12 @@
 \newcommand{\volume}[1]{\chapter{#1}}
 \newcommand{\article}[1]{\section{#1}}
 
+\author{\docAuthor}
+\title{\docTitle}
+
 \begin{document}
+	
+\maketitle
 
 \tableofcontents
 
