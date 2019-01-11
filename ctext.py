@@ -39,13 +39,13 @@ from selenium.common.exceptions import NoSuchElementException
 # chrome_driver_file_path = './bin/chromedriver.exe'
 # chrome_driver = webdriver.Chrome(executable_path=chrome_driver_file_path)
 
-book_url = "https://ctext.org/hou-han-shu/zh"
+book_url = "https://ctext.org/hanfeizi/zh"
 
 # chrome_driver.get(book_url)
 
 # chrome_driver.find_element_by_link_text("五帝本紀").click()
 
-header = {"Referer": "https://ctext.org/han-shu/zh",
+header = {"Referer": book_url,
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"}
 
 
@@ -65,10 +65,10 @@ def get_main_text(article_name, article_url):
         print(f"final_tex: {final_tex}.")
         sys.exit()
     print(final_tex)
-    with open("./hou-han-shu/" + article_url[len("https://ctext.org/hou-han-shu/"):-3].strip("/") + ".tex", "w", encoding="utf-8") as f:
+    with open("./hanfeizi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex", "w", encoding="utf-8") as f:
         f.write("\\article{" + article_name + "}\n\n" + "\\begin{pinyinscope}\n" + final_tex + "\n\\end{pinyinscope}")
-    with open("./hou-han-shu/hou-han-shu.tex", "a", encoding="utf-8") as f:
-        f.write("\\input{hou-han-shu/" + article_url[len("https://ctext.org/hou-han-shu/"):-3].strip("/") + ".tex}\n")
+    with open("./hanfeizi/hanfeizi.tex", "a", encoding="utf-8") as f:
+        f.write("\\input{hanfeizi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex}\n")
     t = random.uniform(2, 5)
     print(f"{article_name} Done!\n\nSleeping for {t} seconds...")
     time.sleep(t)
@@ -88,7 +88,7 @@ def get_article_links(toc_url):
     with open("./toc.txt", "w", encoding="utf-8") as f:
         f.write(articles_info)
 
-# get_article_links(book_url)
+get_article_links(book_url)
 
 with open("./toc.txt", "r", encoding="utf-8") as f:
     for line in f:
