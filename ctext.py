@@ -48,8 +48,6 @@ book_url = "https://ctext.org/hanfeizi/zh"
 header = {"Referer": book_url,
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"}
 
-
-
 def get_main_text(article_name, article_url):
     final_tex = ""
     print(article_url)
@@ -83,22 +81,16 @@ def get_article_links(toc_url):
     for a_tag in content_div.find_all("a", recursive=False):
         article_name = a_tag.get_text().strip()
         article_url = urljoin("https://ctext.org/", a_tag.attrs["href"])
-        if len(article_name) > len("列傳"):
-            articles_info += article_name + "\t" + article_url + "\n"
+        articles_info += article_name + "\t" + article_url + "\n"
+    print(articles_info)
     with open("./toc.txt", "w", encoding="utf-8") as f:
         f.write(articles_info)
 
-get_article_links(book_url)
+# get_article_links(book_url)
 
 with open("./toc.txt", "r", encoding="utf-8") as f:
     for line in f:
         article, url = line.split('\t')
         get_main_text(article, url)
-
-
-
-
-
-
 
 # chrome_driver.close()

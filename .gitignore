@@ -12,6 +12,9 @@
 *.cb2
 .*.lb
 
+## Apple Files
+.DS_Store
+
 ## Intermediate documents:
 *.dvi
 *.xdv
