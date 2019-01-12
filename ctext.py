@@ -39,7 +39,7 @@ from selenium.common.exceptions import NoSuchElementException
 # chrome_driver_file_path = './bin/chromedriver.exe'
 # chrome_driver = webdriver.Chrome(executable_path=chrome_driver_file_path)
 
-book_url = "https://ctext.org/shang-shu/zh"
+book_url = "https://ctext.org/mozi/zh"
 
 # chrome_driver.get(book_url)
 
@@ -63,10 +63,10 @@ def get_main_text(article_name, article_url):
         print(f"final_tex: {final_tex}.")
         sys.exit()
     print(final_tex)
-    with open("./shang-shu/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex", "w", encoding="utf-8") as f:
+    with open("./mozi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex", "w", encoding="utf-8") as f:
         f.write("\\article{" + article_name + "}\n\n" + "\\begin{pinyinscope}\n" + final_tex + "\n\\end{pinyinscope}")
-    with open("./shang-shu/shang-shu.tex", "a", encoding="utf-8") as f:
-        f.write("\\input{shang-shu/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex}\n")
+    with open("./mozi/mozi.tex", "a", encoding="utf-8") as f:
+        f.write("\\input{mozi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex}\n")
     t = random.uniform(3, 6)
     print(f"{article_name} Done!\n\nSleeping for {t} seconds...")
     time.sleep(t)

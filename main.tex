@@ -5,7 +5,7 @@
 \usepackage[left=1cm, right=1cm]{geometry}
 \usepackage{listings}
 \usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
+\renewcommand*{\multicolumntoc}{3}
 
 \usepackage{setspace}
 \usepackage{tikz}
@@ -32,6 +32,10 @@
 \newcommand{\volume}[1]{\chapter{#1}}
 \newcommand{\article}[1]{\section{#1}}
 
+\newenvironment{shici}
+{\begin{verse}\centering}
+{\end{verse}}
+
 \author{\docAuthor}
 \title{\docTitle}
 
@@ -47,9 +51,21 @@
 
 \input{articles/dao-de-jing.tex}
 
-\input{hanfeizi/hanfeizi.tex}
+\input{zhuangzi/zhuangzi.tex}
 
 \input{shang-shu/shang-shu.tex}
+
+\input{mengzi/mengzi.tex}
+
+\input{mozi/mozi.tex}
+
+\input{liezi/liezi.tex}
+
+\input{chu-ci/chu-ci.tex}
+
+\input{articles/tangshi-sanbai-shou.tex}
+
+\input{hanfeizi/hanfeizi.tex}
 
 \input{chun-qiu-zuo-zhuan/chun-qiu-zuo-zhuan.tex}
 
