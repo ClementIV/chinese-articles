@@ -30,23 +30,28 @@ def import_or_install(import_package_name, install_package_name=None):
 import_or_install("bs4", "beautifulsoup4")    
 import_or_install("requests")
 import_or_install("selenium")
+import_or_install("xpinyin")
 
 from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
+from xpinyin import Pinyin
+
+p = Pinyin()
+
 # chrome_driver_file_path = './bin/chromedriver.exe'
 # chrome_driver = webdriver.Chrome(executable_path=chrome_driver_file_path)
 
-book_url = "https://ctext.org/mozi/zh"
+book_url = "https://ctext.org/sanguozhi/zh"
 
 # chrome_driver.get(book_url)
 
 # chrome_driver.find_element_by_link_text("五帝本紀").click()
 
 header = {"Referer": book_url,
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"}
+          "User-Agent": "sanguozhilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"}
 
 def get_main_text(article_name, article_url):
     final_tex = ""
@@ -63,10 +68,10 @@ def get_main_text(article_name, article_url):
         print(f"final_tex: {final_tex}.")
         sys.exit()
     print(final_tex)
-    with open("./mozi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex", "w", encoding="utf-8") as f:
+    with open("./sanguozhi/" + p.get_pinyin(article_name).strip() + ".tex", "w", encoding="utf-8") as f:
         f.write("\\article{" + article_name + "}\n\n" + "\\begin{pinyinscope}\n" + final_tex + "\n\\end{pinyinscope}")
-    with open("./mozi/mozi.tex", "a", encoding="utf-8") as f:
-        f.write("\\input{mozi/" + article_url[len(book_url) - 3:-3].strip("/") + ".tex}\n")
+    with open("./sanguozhi/sanguozhi.tex", "a", encoding="utf-8") as f:
+        f.write("\\input{sanguozhi/" + p.get_pinyin(article_name).strip() + ".tex}\n")
     t = random.uniform(3, 6)
     print(f"{article_name} Done!\n\nSleeping for {t} seconds...")
     time.sleep(t)
